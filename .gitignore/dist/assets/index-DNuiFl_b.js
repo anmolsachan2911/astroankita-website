@@ -1,0 +1,46 @@
+(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))h(i);new MutationObserver(i=>{for(const r of i)if(r.type==="childList")for(const m of r.addedNodes)m.tagName==="LINK"&&m.rel==="modulepreload"&&h(m)}).observe(document,{childList:!0,subtree:!0});function v(i){const r={};return i.integrity&&(r.integrity=i.integrity),i.referrerPolicy&&(r.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?r.credentials="include":i.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function h(i){if(i.ep)return;i.ep=!0;const r=v(i);fetch(i.href,r)}})();window.ASTRO_CONFIG={whatsappNumber:"918750722636",displayPhone:"+91 87507 22636",email:"consult@astroankita.com",instagram:"@astroankita"};document.addEventListener("DOMContentLoaded",()=>{function M(){const e=window.ASTRO_CONFIG.whatsappNumber.replace(/[^0-9]/g,""),t=window.ASTRO_CONFIG.displayPhone;document.querySelectorAll('a[href*="wa.me"]').forEach(o=>{const l=new URL(o.href).searchParams.get("text");o.href=`https://wa.me/${e}${l?"?text="+l:""}`}),document.querySelectorAll('a[href^="tel:"]').forEach(o=>{o.href=`tel:+${e}`,o.dataset.syncText!=="false"&&(o.textContent=t)}),document.querySelectorAll('a[href^="mailto:"]').forEach(o=>{o.href=`mailto:${window.ASTRO_CONFIG.email}`,o.dataset.syncText!=="false"&&(o.textContent=window.ASTRO_CONFIG.email)})}M();const a=document.getElementById("stars-canvas");if(a){let d=function(){s=[];for(let c=0;c<l;c++)s.push({x:Math.random()*t,y:Math.random()*o,radius:Math.random()*1.5+.5,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,alpha:Math.random()*.5+.3})},y=function(){e.clearRect(0,0,t,o);for(let c=0;c<s.length;c++){const n=s[c];n.x+=n.vx,n.y+=n.vy,n.x<0&&(n.x=t),n.x>t&&(n.x=0),n.y<0&&(n.y=o),n.y>o&&(n.y=0),e.beginPath(),e.arc(n.x,n.y,n.radius,0,Math.PI*2),e.fillStyle=`rgba(212, 175, 106, ${n.alpha})`,e.fill();for(let g=c+1;g<s.length;g++){const k=s[g],K=Math.hypot(n.x-k.x,n.y-k.y);K<140&&(e.beginPath(),e.moveTo(n.x,n.y),e.lineTo(k.x,k.y),e.strokeStyle=`rgba(212, 175, 106, ${.12*(1-K/140)})`,e.lineWidth=.6,e.stroke())}}requestAnimationFrame(y)};var te=d,oe=y;const e=a.getContext("2d");let t=a.width=window.innerWidth,o=a.height=window.innerHeight;window.addEventListener("resize",()=>{t=a.width=window.innerWidth,o=a.height=window.innerHeight,d()});let s=[];const l=Math.min(Math.floor(window.innerWidth/20),45);d(),y()}const v=document.getElementById("navbar"),h=document.querySelectorAll(".nav-link"),i=document.querySelectorAll("section[id]");window.addEventListener("scroll",()=>{window.scrollY>40?v.classList.add("scrolled"):v.classList.remove("scrolled");let e="";i.forEach(t=>{const o=t.offsetTop-120,s=t.offsetHeight;window.scrollY>=o&&window.scrollY<o+s&&(e=t.getAttribute("id"))}),h.forEach(t=>{t.classList.remove("active"),t.getAttribute("href")===`#${e}`&&t.classList.add("active")})});const r=document.getElementById("hamburger-btn"),m=document.getElementById("mobile-drawer"),p=document.getElementById("mobile-overlay"),Q=document.querySelectorAll(".mobile-link");function X(){r.classList.contains("open")?b():J()}function J(){r.classList.add("open"),m.classList.add("active"),p.classList.add("active"),document.body.style.overflow="hidden"}function b(){r.classList.remove("open"),m.classList.remove("active"),p.classList.remove("active"),document.body.style.overflow=""}r&&r.addEventListener("click",X),p&&p.addEventListener("click",b),Q.forEach(e=>{e.addEventListener("click",b)});const O=document.querySelectorAll(".faq-item");O.forEach(e=>{const t=e.querySelector(".faq-question");t.addEventListener("click",()=>{const o=e.classList.contains("active");O.forEach(s=>{s.classList.remove("active"),s.querySelector(".faq-question").setAttribute("aria-expanded","false")}),o||(e.classList.add("active"),t.setAttribute("aria-expanded","true"))})});const T=document.getElementById("testimonial-track"),V=document.querySelectorAll(".testimonial-slide"),$=document.getElementById("prev-testimonial"),P=document.getElementById("next-testimonial"),C=document.getElementById("carousel-dots"),N=C?C.querySelectorAll(".dot"):[];let u=0;const A=V.length;let R=null;function E(e){A!==0&&(u=(e+A)%A,T&&(T.style.transform=`translateX(-${u*100}%)`),N.forEach((t,o)=>{o===u?t.classList.add("active"):t.classList.remove("active")}))}$&&$.addEventListener("click",()=>{E(u-1),S()}),P&&P.addEventListener("click",()=>{E(u+1),S()}),N.forEach(e=>{e.addEventListener("click",()=>{const t=parseInt(e.getAttribute("data-index"),10);E(t),S()})});function D(){R=setInterval(()=>{E(u+1)},6e3)}function S(){clearInterval(R),D()}D();const w=document.getElementById("booking-modal"),F=document.getElementById("close-booking-modal"),Z=document.querySelectorAll(".open-booking-btn"),q=document.getElementById("consultation-type");function L(e){e&&(e.classList.add("active"),e.setAttribute("aria-hidden","false"),document.body.style.overflow="hidden")}function f(e){e&&(e.classList.remove("active"),e.setAttribute("aria-hidden","true"),document.body.style.overflow="")}Z.forEach(e=>{e.addEventListener("click",t=>{const o=e.getAttribute("data-service");o&&q&&Array.from(q.options).find(d=>d.value===o)&&(q.value=o),L(w),m.classList.contains("active")&&b()})}),F&&F.addEventListener("click",()=>f(w));const B=document.getElementById("about-modal"),W=document.getElementById("open-about-modal"),_=document.getElementById("close-about-modal");W&&B&&W.addEventListener("click",()=>L(B)),_&&B&&_.addEventListener("click",()=>f(B));const I=document.getElementById("privacy-modal"),z=document.getElementById("open-privacy-link"),G=document.getElementById("close-privacy-modal");z&&I&&z.addEventListener("click",e=>{e.preventDefault(),L(I)}),G&&I&&G.addEventListener("click",()=>f(I));const x=document.getElementById("terms-modal"),H=document.getElementById("open-terms-link"),Y=document.getElementById("close-terms-modal");H&&x&&H.addEventListener("click",e=>{e.preventDefault(),L(x)}),Y&&x&&Y.addEventListener("click",()=>f(x)),document.querySelectorAll(".modal-overlay").forEach(e=>{e.addEventListener("click",t=>{t.target===e&&f(e)})});const j=document.getElementById("booking-form");j&&j.addEventListener("submit",e=>{e.preventDefault();const t=document.getElementById("consultation-type").value,o=document.getElementById("client-name").value;document.getElementById("client-email").value;const s=document.getElementById("client-phone").value,l=document.getElementById("dob").value,d=document.getElementById("tob").value,y=document.getElementById("pob").value,c=document.getElementById("questions").value,n=encodeURIComponent(`Hello Astro Ankita,
+
+I would like to confirm my consultation booking request:
+• Service: ${t}
+• Name: ${o}
+• Phone: ${s}
+• Date of Birth: ${l}
+• Time of Birth: ${d}
+• Place of Birth: ${y}
+`+(c?`• Question: ${c}
+`:"")+`
+Looking forward to your guidance.`),g=w.querySelector(".modal-body");g.innerHTML=`
+        <div style="text-align: center; padding: 1.5rem 0;">
+          <div style="width: 64px; height: 64px; background: rgba(37, 211, 102, 0.15); color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.25rem auto;">
+            ✓
+          </div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary); margin-bottom: 0.5rem;">
+            Booking Request Received!
+          </h3>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+            Thank you, <strong>${o}</strong>. We have captured your birth chart details for <strong>${t}</strong>.
+          </p>
+
+          <div style="background: var(--color-bg-card); border: 1px solid rgba(212, 175, 106, 0.3); border-radius: 12px; padding: 1.25rem; text-align: left; margin-bottom: 1.5rem; font-size: 0.875rem;">
+            <p style="margin-bottom: 0.4rem;"><strong>Date of Birth:</strong> ${l}</p>
+            <p style="margin-bottom: 0.4rem;"><strong>Time of Birth:</strong> ${d}</p>
+            <p style="margin-bottom: 0.4rem;"><strong>Place of Birth:</strong> ${y}</p>
+            <p><strong>Status:</strong> Pending Slot Confirmation</p>
+          </div>
+
+          <p style="font-size: 0.9rem; color: var(--color-text-dark); margin-bottom: 1.5rem;">
+            To expedite your schedule confirmation, you can instantly connect via WhatsApp:
+          </p>
+
+          <a href="https://wa.me/${window.ASTRO_CONFIG.whatsappNumber.replace(/[^0-9]/g,"")}?text=${n}" 
+             target="_blank" 
+             class="btn btn-whatsapp" 
+             style="width: 100%; margin-bottom: 0.75rem;">
+            Confirm on WhatsApp
+          </a>
+
+          <button class="btn btn-outline" id="reset-booking-btn" style="width: 100%;">
+            Done / Close Window
+          </button>
+        </div>
+      `,document.getElementById("reset-booking-btn").addEventListener("click",()=>{f(w),location.reload()})});const ee=document.querySelectorAll(".reveal"),U=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&(t.target.classList.add("active"),U.unobserve(t.target))})},{threshold:.12});ee.forEach(e=>U.observe(e))});
